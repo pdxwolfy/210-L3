@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+      function printMultiples(number) {
+        var i;
+
+        console.log('Odd multiples of ' + String(number));
+
+        // No need to check for number === 0; % handles this fine.
+        for (i = 100; i >= 0; --i) {
+          if (i % number === 0 && i % 2 !== 0) {
+            console.log(i);
+          }
+        }
+
+        console.log('');
+      }
+
+      printMultiples(51);
+      printMultiples(50);
+      printMultiples(7);
+      printMultiples(4);
+      printMultiples(1);
+      printMultiples(0);
+    </script>
+  </body>
+</html>

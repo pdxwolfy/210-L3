@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+      function printMultiples(start, end) {
+        var i;
+        var byThree;
+        var byFive;
+
+        for (i = start; i <= end; ++i) {
+          byThree = i % 3 === 0;
+          byFive = i % 5 === 0;
+          if (byThree || byFive) {
+            if (byThree && byFive) {
+              console.log(String(i) + '!');
+            } else {
+              console.log(i);
+            }
+          }
+        }
+      }
+
+      printMultiples(1, 100);
+    </script>
+  </body>
+</html>
