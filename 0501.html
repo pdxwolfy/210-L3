@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      function isPrime(number) {
+        var largestPossibleFactor = Math.floor(Math.sqrt(number));
+        if (number <= 1) {
+          return false;
+        }
+
+        for (var factor = 2; factor < largestPossibleFactor; ++factor) {
+          if (number % factor === 0) {
+            return false;
+          }
+        }
+
+        return true;
+      }
+
+      console.log(isPrime(1) === false);
+      console.log(isPrime(2) === true);
+      console.log(isPrime(3) === true);
+      console.log(isPrime(43) === true);
+      console.log(isPrime(55) === false);
+      console.log(isPrime(0) === false);
+    </script>
+  </body>
+</html>
