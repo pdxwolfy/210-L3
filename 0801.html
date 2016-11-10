@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      function grade(average_score) {
+        if (average_score >= 90) {
+          return 'A';
+        } else if (average_score >= 70) {
+          return 'B';
+        } else if (average_score >= 50) {
+          return 'C';
+        } else {
+          return 'F';
+        }
+      }
+
+      function sum(numbers) {
+        var total = 0;
+        for (var index = 0; index < numbers.length; ++index) {
+          total += numbers[index];
+        }
+
+        return total;
+      }
+
+      function average(numbers) {
+        return sum(numbers) / numbers.length;
+      }
+
+      var numbers = [];
+      var number;
+      var student_grade;
+
+      for (var i = 1; i <= 3; ++i) {
+        number = prompt('Enter score ' + String(i))
+        numbers.push(Number(number));
+      }
+
+      student_grade = grade(average(numbers));
+      console.log('Based on the average of your ' +
+                  Number(numbers.length) +
+                  ' scores your letter grade is "' +
+                  student_grade +
+                  '"');
+    </script>
+  </body>
+</html>
