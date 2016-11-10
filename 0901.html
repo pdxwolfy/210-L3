@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <!--
+    - determine all factors of 'a'
+    - determine all factors of 'b'
+    - find the largest factor common to the two lists.
+  -->
+
+  <body>
+    <script>
+      "use strict";
+
+      function factorsOf(number) {
+        var factors = [1];
+        var largestFactor = Math.floor(number / 2);
+        for (var factor = 2; factor <= largestFactor; ++factor) {
+          if (number % factor === 0) {
+            factors.push(factor);
+          }
+        }
+
+        factors.push(number);
+        return factors;
+      }
+
+      function gcd(firstNumber, secondNumber) {
+        var factorsOfFirst = factorsOf(firstNumber);
+        var factorsOfSecond = factorsOf(secondNumber);
+        var first = factorsOfFirst.length - 1;
+        var second = factorsOfSecond.length - 1;
+
+        while (first >= 0 && second >= 0) {
+          if (factorsOfFirst[first] === factorsOfSecond[second]) {
+            return factorsOfFirst[first];
+          } else if (factorsOfFirst[first] < factorsOfSecond[second]) {
+            --second;
+          } else {
+            --first;
+          }
+        }
+
+        return 1;
+      }
+
+      console.log(gcd(12, 4) === 4);
+      console.log(gcd(15, 10) === 5);
+      console.log(gcd(9, 2) === 1);
+    </script>
+  </body>
+</html>
