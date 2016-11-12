@@ -25,14 +25,12 @@
       "use strict";
 
       function isPrime(number) {
-        var largestPossibleFactor = Math.floor(Math.sqrt(number));
-        var factor;
-
         if (number <= 1) {
           return false;
         }
 
-        for (factor = 2; factor <= largestPossibleFactor; ++factor) {
+        var largestPossibleFactor = Math.floor(Math.sqrt(number));
+        for (var factor = 2; factor <= largestPossibleFactor; ++factor) {
           if (number % factor === 0) {
             return false;
           }
@@ -53,15 +51,14 @@
       }
 
       function checkGoldbach(number) {
-        var primes;
-        var candidate;
-
         if (number % 2 === 1 || number < 4) {
           console.log(null);
           return;
         }
 
-        primes = primeNumbers(number - 2);
+        var primes = primeNumbers(number - 2);
+        var candidate;
+
         while (primes.length >= 1) {
           candidate = primes[0];
           if (primes.indexOf(number - candidate) > -1) {
