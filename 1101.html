@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <!--
+    Goldbach
+
+    sub primes(n)
+      return list of numbers from 2 to n that are prime
+
+    sub isGoldbach(n)
+      return null if n is odd or n < 4
+      for each prime in primes(n)
+        if (n - prime) is in primes(n)
+          log n, n - prime
+
+  -->
+
+  <body>
+    <script>
+      "use strict";
+
+      function isPrime(number) {
+        var largestPossibleFactor = Math.floor(Math.sqrt(number));
+        var factor;
+
+        if (number <= 1) {
+          return false;
+        }
+
+        for (factor = 2; factor <= largestPossibleFactor; ++factor) {
+          if (number % factor === 0) {
+            return false;
+          }
+        }
+
+        return true;
+      }
+
+      function primeNumbers(largest) {
+        var primes = [];
+        for (var candidate = 2; candidate <= largest; ++candidate) {
+          if (isPrime(candidate)) {
+            primes.push(candidate);
+          }
+        }
+
+        return primes;
+      }
+
+      function checkGoldbach(number) {
+        var primes;
+        var candidate;
+
+        if (number % 2 === 1 || number < 4) {
+          console.log(null);
+          return;
+        }
+
+        primes = primeNumbers(number - 2);
+        while (primes.length >= 1) {
+          candidate = primes[0];
+          if (primes.indexOf(number - candidate) > -1) {
+            console.log('%d %d', candidate, number - candidate);
+          }
+
+          primes.shift();
+        }
+      }
+
+      console.log('checkGoldbach(3)');
+      checkGoldbach(3);
+
+      console.log('checkGoldbach(4)');
+      checkGoldbach(4);
+
+      console.log('checkGoldbach(12)');
+      checkGoldbach(12);
+
+      console.log('checkGoldbach(100)');
+      checkGoldbach(100);
+
+      console.log('checkGoldbach(123)');
+      checkGoldbach(123);
+
+      console.log('checkGoldbach(9990)');
+      checkGoldbach(9990);
+    </script>
+  </body>
+</html>

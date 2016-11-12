@@ -16,7 +16,7 @@
           return false;
         }
 
-        for (var factor = 2; factor < largestPossibleFactor; ++factor) {
+        for (var factor = 2; factor <= largestPossibleFactor; ++factor) {
           if (number % factor === 0) {
             return false;
           }
@@ -28,6 +28,10 @@
       console.log(isPrime(1) === false);
       console.log(isPrime(2) === true);
       console.log(isPrime(3) === true);
+      console.log(isPrime(5) === true);
+      console.log(isPrime(7) === true);
+      console.log(isPrime(9) === false);
+      console.log(isPrime(12) === false);
       console.log(isPrime(43) === true);
       console.log(isPrime(55) === false);
       console.log(isPrime(0) === false);
