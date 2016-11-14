@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      // repeat(string, times):
+      //   if times is not a number
+      //     return undefined
+      //   else if times < 0
+      //     return undefined
+      //   else
+      //     result = ''
+      //     append string to result "times" times
+      //     return result
+
+      function repeat(string, times) {
+        if (isNaN(times) || times < 0) {
+          return undefined;
+        }
+
+        var result = '';
+        for (var count = 0; count < Math.floor(times); ++count) {
+          result += string;
+        }
+
+        return result;
+      }
+
+      console.log(repeat('abc', 1) === "abc");
+      console.log(repeat('abc', 2) === "abcabc");
+      console.log(repeat('abc ', 3.5) === "abc abc abc ");
+      console.log(repeat('abc', -1) === undefined);
+      console.log(repeat('abc', 0) === "");
+      console.log(repeat('abc', 'a') === undefined);
+    </script>
+  </body>
+</html>
