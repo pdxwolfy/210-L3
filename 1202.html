@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      // for each number from 1 to n
+      //   string = concatenate(digits 1..n)
+      //   append '*' to string until length is n
+      //   log string
+
+      function generateRow(size, highestDigit) {
+        var row = '';
+
+        for (var column = 1; column <= size; ++column) {
+          if (column <= highestDigit) {
+            row += String(column);
+          } else {
+            row += '*'.repeat(String(column).length);
+          }
+        }
+
+        return row;
+      }
+
+      function generatePattern(number) {
+        for (var rowNumber = 1; rowNumber <= number; ++rowNumber) {
+          console.log(generateRow(number, rowNumber));
+        }
+      }
+
+      for (var i = 2; i < 10; ++i) {
+        console.log('generatePattern(%d)', i);
+        generatePattern(i);
+      }
+
+      generatePattern(20);
+    </script>
+  </body>
+</html>

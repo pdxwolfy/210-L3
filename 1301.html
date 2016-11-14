@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      function indexOf(firstString, secondString) {
+        var matchIndex = 0;
+        for (var index = 0; index < firstString.length; ++index) {
+          if (firstString[index] === secondString[matchIndex]) {
+            ++matchIndex;
+            if (matchIndex === secondString.length) {
+              return index - matchIndex + 1;
+            }
+          } else {
+            matchIndex = 0;
+          }
+        }
+
+        return -1;
+      }
+
+      console.log(indexOf('Some strings', 's') === 5);      // 5
+      console.log(indexOf('Some strings', 'gs') === 10);      // 5
+      console.log(indexOf('Blue Whale', 'Whale') === 5);    // 5
+      console.log(indexOf('Blue Whale', 'Blute') === -1);    // -1
+      console.log(indexOf('Blue Whale', 'leB') === -1);      // -1
+      console.log(indexOf('', 's') === -1);      // -1
+      console.log(indexOf('s', '') === -1);      // -1
+      console.log(indexOf('s', 's') === 0);      // 0
+    </script>
+  </body>
+</html>

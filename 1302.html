@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      function lastIndexOf(firstString, secondString) {
+        var matchIndex = secondString.length - 1;
+        for (var index = firstString.length - 1; index >= 0; --index) {
+          if (firstString[index] === secondString[matchIndex]) {
+            --matchIndex;
+            if (matchIndex === -1) {
+              return index;
+            }
+          } else {
+            matchIndex = secondString.length - 1;
+          }
+        }
+
+        return -1;
+      }
+
+      console.log(lastIndexOf('Some strings', 's') === 11);
+      console.log(lastIndexOf('Some strings', 'st') === 5);
+      console.log(lastIndexOf('Some strings', '') === -1);
+      console.log(lastIndexOf('', '') === -1);
+      console.log(lastIndexOf('', 's') === -1);
+      console.log(lastIndexOf('Blue Whale, Killer Whale', 'Whale') === 19);
+      console.log(lastIndexOf('Blue Whale, Killer Whale', 'all') === -1);
+    </script>
+  </body>
+</html>
