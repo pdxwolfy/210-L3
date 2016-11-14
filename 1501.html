@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      // substring(str, start, length)
+      //
+      //   result = ''
+      //   for str[start] to str[start + length - 1]
+      //     append character to result
+      //
+      //   return result
+      //
+      // splitString(str, delimiter)
+      //
+      //   string to log = ''
+      //   for index from 0 to str.length - 1
+      //     if substring(str, index, delimiter.length) is delimiter
+      //       log string to log
+      //       string to log = ''
+      //       index += delimiter.length - 1
+      //     else if delimiter is empty string
+      //       log str[index]
+      //     else
+      //       concatenate str[index] to string to log
+
+      function substring(str, start, length) {
+        var result = '';
+        for (var index = start; index < start + length; ++index) {
+          if (index > str.length) {
+            break;
+          }
+
+          result += str[index];
+        }
+
+        return result;
+      }
+
+      function splitString(str, delimiter) {
+        console.log('**********************');
+        console.log(str);
+        if (typeof delimiter === 'undefined') {
+          return str;
+        }
+
+        var logThis = '';
+        for (var index = 0; index < str.length; ++index) {
+          if (delimiter === '') {
+            console.log(str[index]);
+          } else if (substring(str, index, delimiter.length) === delimiter) {
+            console.log(logThis);
+            logThis = '';
+            index += delimiter.length - 1;
+          } else {
+            logThis += str[index];
+          }
+        }
+
+        if (logThis) {
+          console.log(logThis);
+        }
+      }
+
+      splitString('abc,123,hello world', ',');
+      // abc
+      // 123
+      // hello world
+
+      splitString('hello');
+      // hello
+
+      splitString('hello', '');
+      // h
+      // e
+      // l
+      // l
+      // o
+
+      splitString('hello', ';');
+      // hello
+
+      splitString(';hello;', ';');
+      //
+      // hello
+
+      splitString("What's  up  doc?", '  ');
+      // What's
+      // up
+      // doc?
+
+      splitString("What's  up  doc?", ' ');
+      // What's
+      //
+      // up
+      //
+      // doc?
+
+      splitString("What's  up  doc?");
+      // What's  up  doc?
+
+    </script>
+  </body>
+</html>
