@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      function substr(str, start, length) {
+        if (start < 0) {
+          start = str.length + start;
+        }
+
+        var result = '';
+        for (var index = start; index < start + length; ++index) {
+          if (typeof str[index] === 'undefined') {
+            break;
+          }
+
+          result += str[index];
+        }
+
+        return result;
+      }
+
+      var string = 'hello world';
+
+      console.log(substr(string, 2, 4) === "llo ");     // "llo "
+      console.log(substr(string, -3, 2) === "rl");    // "rl"
+      console.log(substr(string, 8, 20) === "rld");    // "rld"
+      console.log(substr(string, 0, -20) === "");   // ""
+      console.log(substr(string, 0, 0) === "") ;     // ""
+    </script>
+  </body>
+</html>

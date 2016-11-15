@@ -28,7 +28,7 @@
         for (var index = 0; index < string.length; ++index) {
           char = string[index];
           if (char >= 'A' && char <= 'Z') {
-            charCode = string[index].charCodeAt() + 32;
+            charCode = string.charCodeAt(index) + TO_LOWER_OFFSET;
             char = String.fromCharCode(charCode);
           }
 
