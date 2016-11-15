@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      // toLowerCase(string)
+      //   result = ''
+      //   for each character in string
+      //     if character is uppercase
+      //       append lowercase equivalent of character to result
+      //     else
+      //       append character to result
+      //   return result
+
+      var TO_LOWER_OFFSET = 32;
+      function toLowerCase(string) {
+        var result = '';
+        var char;
+        var charCode;
+
+        for (var index = 0; index < string.length; ++index) {
+          char = string[index];
+          if (char >= 'A' && char <= 'Z') {
+            charCode = string[index].charCodeAt() + 32;
+            char = String.fromCharCode(charCode);
+          }
+
+          result += char;
+        }
+
+        return result;
+      }
+
+      console.log(toLowerCase('ALPHABET') === 'alphabet');      // "alphabet"
+      console.log(toLowerCase('123') === '123');           // "123"
+      console.log(toLowerCase('abcDEF') === 'abcdef');        // "abcdef"
+    </script>
+  </body>
+</html>

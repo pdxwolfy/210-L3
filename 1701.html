@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      // startsWith(string, searchString):
+      //   if substring(string, 0, searchString.length) === searchString
+      //     return true
+      //   return false
+
+      function substring(str, start, length) {
+        var result = '';
+        for (var index = start; index < start + length; ++index) {
+          if (index > str.length) {
+            break;
+          }
+
+          result += str[index];
+        }
+
+        return result;
+      }
+
+      function startsWith(string, searchString) {
+        return substring(string, 0, searchString.length) === searchString;
+      }
+
+      var str = 'We put comprehension and mastery above all else';
+      console.log(startsWith(str, 'We') === true);       // true
+      console.log(startsWith(str, 'We put') === true);   // true
+      console.log(startsWith(str, '') === true);         // true
+      console.log(startsWith(str, 'put') === false);      // false
+      console.log(startsWith(str, str) === true);        // true
+
+      var longerString = 'We put comprehension and mastery above all else!';
+      console.log(startsWith(str, longerString) === false);      // false
+    </script>
+  </body>
+</html>
