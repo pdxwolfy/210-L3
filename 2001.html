@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      function substrByLength(str, start, length) {
+        if (start < 0) {
+          start = str.length + start;
+        }
+
+        var result = '';
+        for (var index = start; index < start + length; ++index) {
+          if (typeof str[index] === 'undefined') {
+            break;
+          }
+
+          result += str[index];
+        }
+
+        return result;
+      }
+
+      function getDefault(value, defaultValue) {
+        return typeof value === 'undefined' ? defaultValue : value;
+      }
+
+      function getNumber(value) {
+        return isNaN(value) || value < 0 ? 0 : value;
+      }
+
+      function substring(str, start, end) {
+        end = getDefault(end, str.length);
+        end = getNumber(end);
+        start = getNumber(start);
+
+        var tmp;
+        if (start > end) {
+          tmp = start;
+          start = end;
+          end = tmp;
+        }
+
+        return substrByLength(str, start, end - start);
+      }
+
+      var string = 'hello world';
+
+      console.log(substring(string, 2, 4) === 'll');    // "ll"
+      console.log(substring(string, 4, 2) === 'll');    // "ll"
+      console.log(substring(string, 0, -1) === '');   // ""
+      console.log(substring(string, 2) === 'llo world');       // "llo world"
+      console.log(substring(string, 'a') === 'hello world');     // "hello world"
+      console.log(substring(string, 8, 20) === 'rld');   // "rld"
+    </script>
+  </body>
+</html>
